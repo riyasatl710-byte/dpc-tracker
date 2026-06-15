@@ -27,8 +27,8 @@ export default function ProtectedRoute({ minRole, children }) {
 
   // Optional role checking
   if (minRole) {
-    const roleHierarchy = ['viewer', 'editor', 'admin', 'super_admin'];
-    const userRoleIndex = roleHierarchy.indexOf(role || 'viewer');
+    const roleHierarchy = ['Read Only', 'Dealing Assistant', 'Dept Admin', 'Super Admin'];
+    const userRoleIndex = roleHierarchy.indexOf(role || 'Read Only');
     const minRoleIndex = roleHierarchy.indexOf(minRole);
 
     if (userRoleIndex < minRoleIndex) {

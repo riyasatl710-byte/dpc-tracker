@@ -8,7 +8,7 @@ import UserManager from './UserManager';
 
 export default function AdminPage() {
   const { role } = useAuthStore();
-  const isSuper = role === 'super_admin';
+  const isSuper = role === 'Super Admin';
   const [activeTab, setActiveTab] = useState('users');
 
   return (

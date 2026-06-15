@@ -13,8 +13,8 @@ export default function Sidebar() {
   const { cadres } = useDepartmentStore();
   const { sidebarOpen, toggleSidebar } = useUiStore();
 
-  const isConfigVisible = role === 'admin' || role === 'super_admin';
-  const isAdminVisible = role === 'admin' || role === 'super_admin';
+  const isConfigVisible = role === 'Super Admin' || role === 'Dept Admin';
+  const isAdminVisible = role === 'Super Admin' || role === 'Dept Admin';
 
   return (
     <aside className={`sidebar ${sidebarOpen ? 'sidebar--open' : 'sidebar--closed'}`}>

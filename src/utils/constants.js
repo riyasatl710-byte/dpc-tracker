@@ -3,10 +3,11 @@
  */
 
 export const ROLES = {
-  SUPER_ADMIN: 'super_admin',
-  DEPT_ADMIN: 'admin',          // maps to 'admin' in backend / Users tab
-  DEALING_ASSISTANT: 'editor',  // maps to 'editor' in backend / Users tab
-  READ_ONLY: 'viewer'           // maps to 'viewer' in backend / Users tab
+  SUPER_ADMIN: 'Super Admin',
+  DEPT_ADMIN: 'Department Admin',
+  DEALING_ASSISTANT: 'Dealing Assistant',
+  READ_ONLY: 'Read-Only Observer',
+  VIEWER: 'Viewer'
 };
 
 export const STATUS = {

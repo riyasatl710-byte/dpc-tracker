@@ -19,6 +19,7 @@ var ROLE_LEVELS = {
   'Super Admin': 40,
   'Department Admin': 30,
   'Dealing Assistant': 20,
+  'Viewer': 10,
   'Read-Only Observer': 10
 };
 

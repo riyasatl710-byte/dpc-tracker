@@ -20,11 +20,11 @@ export default function UserManager() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('viewer');
+  const [role, setRole] = useState('Viewer');
   const [targetDeptId, setTargetDeptId] = useState('');
   const [isAdding, setIsAdding] = useState(false);
 
-  const isSuper = currentRole === 'super_admin';
+  const isSuper = currentRole === 'Super Admin';
 
   useEffect(() => {
     if (isSuper) {
@@ -65,19 +65,19 @@ export default function UserManager() {
 
     // Determine department ID for mapping
     const deptId = isSuper ? targetDeptId : currentUser?.departmentId;
-    if (!deptId && role !== 'super_admin') {
+    if (!deptId && role !== 'Super Admin') {
       showToast('error', 'A department must be assigned.');
       return;
     }
 
     setIsAdding(true);
     try {
-      await addUser(uEmail, uName, role, role === 'super_admin' ? '' : deptId, password.trim());
+      await addUser(uEmail, uName, role, role === 'Super Admin' ? '' : deptId, password.trim());
       showToast('success', 'User added successfully.');
       setEmail('');
       setName('');
       setPassword('');
-      setRole('viewer');
+      setRole('Viewer');
       setTargetDeptId('');
       await loadUsers();
     } catch (err) {
@@ -176,15 +176,16 @@ export default function UserManager() {
               onChange={(e) => setRole(e.target.value)}
               disabled={isAdding}
             >
-              <option value="viewer">Read-Only Observer</option>
-              <option value="editor">Dealing Assistant</option>
-              <option value="admin">Department Admin</option>
-              {isSuper && <option value="super_admin">Super Admin</option>}
+              <option value="Viewer">Viewer</option>
+              <option value="Read-Only Observer">Read-Only Observer</option>
+              <option value="Dealing Assistant">Dealing Assistant</option>
+              <option value="Department Admin">Department Admin</option>
+              {isSuper && <option value="Super Admin">Super Admin</option>}
             </select>
           </div>
 
           {/* Department Selection (Super Admin only) */}
-          {isSuper && role !== 'super_admin' && (
+          {isSuper && role !== 'Super Admin' && (
             <div className="form-group">
               <label className="form-label" htmlFor="user-dept">Assign Department:</label>
               <select
@@ -268,20 +269,21 @@ export default function UserManager() {
                         <select
                           className="select select--sm"
                           value={u.Role}
-                          disabled={isSelf || (!isSuper && u.Role === 'admin')}
+                          disabled={isSelf || (!isSuper && u.Role === 'Department Admin')}
                           onChange={(e) => handleRoleChange(u.Email, e.target.value)}
                           style={{ width: '130px' }}
                         >
-                          <option value="viewer">Observer</option>
-                          <option value="editor">Assistant</option>
-                          <option value="admin">Admin</option>
-                          {isSuper && <option value="super_admin">Super Admin</option>}
+                          <option value="Viewer">Viewer</option>
+                          <option value="Read-Only Observer">Observer</option>
+                          <option value="Dealing Assistant">Assistant</option>
+                          <option value="Department Admin">Admin</option>
+                          {isSuper && <option value="Super Admin">Super Admin</option>}
                         </select>
                       </td>
                       <td>
                         <button
                           className="btn btn-danger btn-sm"
-                          disabled={isSelf || (!isSuper && u.Role === 'admin')}
+                          disabled={isSelf || (!isSuper && u.Role === 'Department Admin')}
                           onClick={() => handleRemoveUser(u.Email)}
                         >
                           Revoke

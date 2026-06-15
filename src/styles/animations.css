@@ -1,0 +1,659 @@
+/* =============================================
+   DPC PROMOTION TRACKER — ANIMATIONS
+   Keyframes, transitions, and animation utilities
+   ============================================= */
+
+/* ── Keyframes ───────────────────────────────── */
+
+/* Fade */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+/* Pulse */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulseScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212, 168, 67, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(212, 168, 67, 0);
+  }
+}
+
+/* Shimmer (skeleton loading) */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Spin */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Progress bar fill */
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--progress-value, 0%);
+  }
+}
+
+@keyframes progressStripe {
+  0% {
+    background-position: 1rem 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Card entrance (staggered) */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Toast slide */
+@keyframes toastSlide {
+  from {
+    opacity: 0;
+    transform: translateX(100%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%) scale(0.95);
+  }
+}
+
+/* Modal entrance */
+@keyframes modalOverlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalContentIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalContentOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+}
+
+/* Sidebar slide */
+@keyframes sidebarSlideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes sidebarSlideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Bounce */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Wiggle (for error attention) */
+@keyframes wiggle {
+  0%, 100% { transform: translateX(0); }
+  10%      { transform: translateX(-4px); }
+  20%      { transform: translateX(4px); }
+  30%      { transform: translateX(-4px); }
+  40%      { transform: translateX(4px); }
+  50%      { transform: translateX(-2px); }
+  60%      { transform: translateX(2px); }
+  70%      { transform: translateX(0); }
+}
+
+/* Glow pulse for active elements */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(212, 168, 67, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 168, 67, 0.4);
+  }
+}
+
+/* Typing dots */
+@keyframes typingDots {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Count up number animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ripple effect */
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Gradient flow */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* ── Animation Utility Classes ───────────────── */
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s var(--ease-default) forwards;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.3s var(--ease-default) forwards;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.4s var(--ease-default) forwards;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.4s var(--ease-default) forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s var(--ease-out) forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.4s var(--ease-out) forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.4s var(--ease-out) forwards;
+}
+
+.animate-slideOut {
+  animation: slideOut 0.3s var(--ease-in) forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.4s var(--ease-out) forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s var(--ease-spring) forwards;
+}
+
+.animate-scaleOut {
+  animation: scaleOut 0.2s var(--ease-in) forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s var(--ease-default) infinite;
+}
+
+.animate-pulseScale {
+  animation: pulseScale 2s var(--ease-default) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-bounce {
+  animation: bounce 0.6s var(--ease-default);
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s var(--ease-default);
+}
+
+.animate-cardEntrance {
+  animation: cardEntrance 0.5s var(--ease-out) forwards;
+  opacity: 0;
+}
+
+.animate-toastSlide {
+  animation: toastSlide 0.4s var(--ease-spring) forwards;
+}
+
+.animate-toastSlideOut {
+  animation: toastSlideOut 0.3s var(--ease-in) forwards;
+}
+
+.animate-modalIn {
+  animation: modalContentIn 0.3s var(--ease-spring) forwards;
+}
+
+.animate-modalOut {
+  animation: modalContentOut 0.2s var(--ease-in) forwards;
+}
+
+.animate-glowPulse {
+  animation: glowPulse 2s var(--ease-default) infinite;
+}
+
+.animate-gradientFlow {
+  background-size: 200% 200%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+
+/* ── Shimmer / Skeleton ──────────────────────── */
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-surface) 25%,
+    var(--bg-hover) 50%,
+    var(--bg-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+.skeleton {
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton--text {
+  height: 14px;
+  width: 80%;
+  margin-bottom: var(--space-2);
+}
+
+.skeleton--text-sm {
+  height: 12px;
+  width: 60%;
+  margin-bottom: var(--space-2);
+}
+
+.skeleton--heading {
+  height: 24px;
+  width: 50%;
+  margin-bottom: var(--space-4);
+}
+
+.skeleton--avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+}
+
+.skeleton--card {
+  height: 180px;
+  border-radius: var(--radius-xl);
+}
+
+.skeleton--button {
+  height: 40px;
+  width: 120px;
+  border-radius: var(--radius-lg);
+}
+
+
+/* ── Hover Effects ───────────────────────────── */
+
+.hover-lift {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-lift:active {
+  transform: translateY(-1px);
+}
+
+.hover-glow {
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.hover-glow:hover {
+  box-shadow: var(--shadow-glow-strong);
+  border-color: rgba(212, 168, 67, 0.3);
+}
+
+.hover-scale {
+  transition: transform var(--transition-base);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-scale:active {
+  transform: scale(0.98);
+}
+
+.hover-bright {
+  transition: filter var(--transition-fast);
+}
+
+.hover-bright:hover {
+  filter: brightness(1.1);
+}
+
+.hover-accent-border {
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-accent-border:hover {
+  border-color: var(--border-accent-strong);
+  box-shadow: 0 0 0 1px var(--accent-glow);
+}
+
+
+/* ── Stagger Delay Utilities ─────────────────── */
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+.stagger-7 { animation-delay: 0.35s; }
+.stagger-8 { animation-delay: 0.4s; }
+
+/* Additional stagger helpers */
+.stagger-9  { animation-delay: 0.45s; }
+.stagger-10 { animation-delay: 0.5s; }
+.stagger-11 { animation-delay: 0.55s; }
+.stagger-12 { animation-delay: 0.6s; }
+
+
+/* ── Transition Utilities ────────────────────── */
+
+.transition-none {
+  transition: none;
+}
+
+.transition-all {
+  transition: all var(--transition-base);
+}
+
+.transition-fast {
+  transition: all var(--transition-fast);
+}
+
+.transition-slow {
+  transition: all var(--transition-slow);
+}
+
+.transition-colors {
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.transition-opacity {
+  transition: opacity var(--transition-base);
+}
+
+.transition-transform {
+  transition: transform var(--transition-base);
+}
+
+
+/* ── Reduced Motion ──────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  .hover-scale:hover {
+    transform: none;
+  }
+}
